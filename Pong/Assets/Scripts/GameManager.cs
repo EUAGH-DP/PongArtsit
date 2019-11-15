@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     //Has the game started? 
     public static bool GameStarted = false;
 
+    public GameObject Ball1 = null;
+    public GameObject Ball2 = null;
+
     //These represent the UI text objects displayed on screen.
     [SerializeField] Text scoreObject_P1 = null;
     [SerializeField] Text scoreObject_P2 = null;
@@ -39,10 +42,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] int scorePerGoal = 1;
 
     //This is the position the ball will start at.
-    [SerializeField] Vector3 ballStartPosition = new Vector3();
-	
-	//events to run on player deaths
-	[SerializeField] UnityEvent Player1Events = new UnityEvent();
+    [SerializeField] public Vector3 ballStartPosition1 = new Vector3();
+
+    [SerializeField] public Vector3 ballStartPosition2 = new Vector3();
+
+    //events to run on player deaths
+    [SerializeField] UnityEvent Player1Events = new UnityEvent();
 	[SerializeField] UnityEvent Player2Events = new UnityEvent();
 
     void Start ( ) 
@@ -64,14 +69,14 @@ public class GameManager : MonoBehaviour
         {
             if(Input.GetKeyUp(KeyCode.Space))
             {
-                BallController.ballRef.ThrowBall();
+                Ball1.GetComponent<BallController>().ThrowBall();
                 GameStarted = true;
             }
         }
     }
 
 
-    public static void Score ( Player player)
+    public void Score ( Player player)
     {
         switch ( player )
         {
@@ -96,7 +101,10 @@ public class GameManager : MonoBehaviour
         managerRef.scoreObject_P2.text = $"{ managerRef.score_P2 }"; 
 
         GameStarted = false;
-        BallController.ballRef.gameObject.transform.position = managerRef.ballStartPosition;
-        BallController.ballRef._rigidbody2D.velocity = Vector3.zero;
+        Ball1.GetComponent<BallController>().gameObject.transform.position = managerRef.ballStartPosition1;
+        Ball1.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        Ball2.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        Ball2.GetComponent<BallController>().gameObject.transform.position = managerRef.ballStartPosition2;
+        Ball2.GetComponent<Ball2>().Started = false;
     }
 }
