@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 40c4acd0a3437524cb0d8ff442520f2d
   - enabled: 1
-    path: Assets/Scenes/PongScene.unity
+    path: Assets/Scenes/GlitchScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Player1Win.unity
