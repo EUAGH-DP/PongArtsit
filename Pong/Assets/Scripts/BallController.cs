@@ -48,9 +48,9 @@ public class BallController : MonoBehaviour
     {
         //If we hit player 1's goal then player 2 scores.
         if (hitObject.gameObject.name == "Goal_Player1")
-            GameManager.Score(GameManager.Player.Player2);
+            GameManager.managerRef.Score(GameManager.Player.Player2);
         //If we hit player 2's goal then player 1 scores.
         else if (hitObject.gameObject.name == "Goal_Player2")
-            GameManager.Score(GameManager.Player.Player1);
+            GameManager.managerRef.Score(GameManager.Player.Player1);
     }
 }
