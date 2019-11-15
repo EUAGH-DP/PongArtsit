@@ -32,6 +32,9 @@ SpriteAtlas:
     packables: []
     totalSpriteSurfaceArea: 0
     bindAsDefault: 1
+    storedHash:
+      serializedVersion: 2
+      Hash: 74dac2e6a50b563db818267185ba884b
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites: []
   m_PackedSpriteNamesToIndex: []
