@@ -22,7 +22,6 @@ public class Ball2 : MonoBehaviour
             {
                 if (Timer >= Spawn)
                 {
-
                     gameObject.GetComponent<Transform>().transform.position = GameManager.managerRef.ballStartPosition1;
                     gameObject.GetComponent<BallController>().ThrowBall();
                     Started = true;
@@ -33,6 +32,9 @@ public class Ball2 : MonoBehaviour
                     Timer += Time.deltaTime;
                 }
             }
+        }else
+        {
+            Timer = 0;
         }
     }
 }
